@@ -14,22 +14,11 @@ This repository contains the code and example datasets for the paper:
 
 Developed at the [Dynamics, Data and Design (D3) Lab](https://d3lab-iisc.github.io/), Department of Mechanical Engineering, Indian Institute of Science (IISc) Bengaluru.
 
-## Abstract
+## Workflow
 
-We propose a computational framework, Hetero-EUCLID, for segmentation and parameter identification to characterize the full hyperelastic behavior of all constituents of a heterogeneous material. In this work, we leverage the Bayesian-EUCLID (Efficient Unsupervised Constitutive Law Identification and Discovery) framework to efficiently solve the heterogenized formulation through parsimonious model selection using sparsity-promoting priors and Monte Carlo Markov Chain sampling. We utilize experimentally observable 3D surface displacement and boundary-averaged force data generated from Finite Element simulations of non-equi-biaxial tension tests on heterogeneous specimens. The framework broadly consists of two steps– residual force-based segmentation and constitutive parameter identification. We validate and demonstrate the ability of the proposed framework to segment the domain and characterize the constituent materials on various types of thin square heterogeneous domains. We validate the framework’s ability to segment and characterize materials with multiple levels of displacement noises and non-native mesh discretizations, i.e, using different meshes for the forward FE simulations and the inverse EUCLID problem. This demonstrates the applicability of the Hetero-EUCLID framework in Digital Image/Volume Correlation-based experimental scenarios. Furthermore, the proposed framework performs successful segmentation and material characterizations based on data from a single experiment, thereby making it viable for rapid, interpretable model discovery in domains such as aerospace and defense composites and for characterization of selective tissue stiffening in medical conditions such as fibroatheroma, atherosclerosis, or cancer.
+![Hetero-EUCLID workflow](docs/graphical_abstract.jpg)
 
-## Relation to Bayesian-EUCLID
-
-Hetero-EUCLID extends [Bayesian-EUCLID](https://github.com/EUCLID-code/EUCLID-hyperelasticity-bayesian) (Joshi et al., *CMAME* 2022) to heterogeneous domains. The hierarchical Bayesian spike-and-slab solver, the Gibbs sampler and the kinematics utilities in `core/` build on the Bayesian-EUCLID implementation. For a detailed description of those modules and functions, see the [Bayesian-EUCLID documentation](https://euclid-code.github.io/EUCLID-hyperelasticity-bayesian/mkdocs/site/).
-
-The pipeline in `drivers/main_hss_hetero_euclid.py` runs these steps:
-
-1. **Assemble the system**: load the FE displacement and reaction-force data (6-node wedge elements, 2 integration points) and build the force-balance equations for a single homogeneous material.
-2. **Segment using residual forces**: fit the homogeneous model by least squares, compute the nodal residual forces, and grow material "islands" from regions where the residuals are high (`growIslands`).
-3. **Assemble the heterogeneous system**: rebuild the equations with one set of material parameters per segmented island.
-4. **Identify parameters (Bayesian)**: run parallel spike-and-slab MCMC chains to find a sparse, interpretable constitutive model for each constituent, with uncertainty.
-
-If you add noise, the displacements are perturbed with Gaussian noise and then denoised using kernel ridge regression before step 1.
+**(a–e)** Surface displacements of an unknown heterogeneous specimen (from FE simulations, or from DIC/DVC in experiments) are mapped onto a wedge-element mesh to obtain strain fields. **(f–g)** A homogenized model, built from a library of constitutive features, is fitted to the linear momentum balance by least squares. **(h–i)** The residual force field of this fit highlights the material interfaces, and a random seed-based growth algorithm segments the domain into material regions. **(j–k)** A heterogenized model with one parameter set per region is solved with the spike-and-slab Bayesian framework, giving an interpretable material model for each region.
 
 ## Repository structure
 
@@ -52,6 +41,7 @@ Hetero-EUCLID/
 ├── main_data/
 │   ├── Type1_Cross_Shaped_Inclusion/{1..6}/  # FE data per load step
 │   └── Type2_Split_Domain/{1..6}/
+├── docs/graphical_abstract.jpg            # Workflow schematic
 ├── HeteroEUCLID.yml                        # Exact conda environment (Windows)
 └── requirements.txt                        # Cross-platform pip requirements
 ```
@@ -179,6 +169,11 @@ and the Bayesian-EUCLID framework it builds on:
   doi     = {10.1016/j.cma.2022.115225}
 }
 ```
+
+## Acknowledgements
+
+- The Bayesian solver in `core/` (hierarchical spike-and-slab prior with Gibbs sampling) and the kinematics utilities are adapted from [Bayesian-EUCLID](https://github.com/EUCLID-code/EUCLID-hyperelasticity-bayesian) (Joshi et al., *CMAME* 2022). Its [documentation](https://euclid-code.github.io/EUCLID-hyperelasticity-bayesian/mkdocs/site/) describes these modules in detail.
+- `core/truncated_multivariate_normal.py` is taken from Paul Brunzema's [truncated-mvn-sampler](https://github.com/brunzema/truncated-mvn-sampler), a Python implementation of the minimax-tilting method of Botev (2016).
 
 ## License
 
