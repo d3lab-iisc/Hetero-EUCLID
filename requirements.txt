@@ -1,0 +1,12 @@
+# Python 3.12 (versions used for the paper; see HeteroEUCLID.yml for the exact conda environment)
+numpy==1.26.4
+scipy==1.13.1
+pandas==2.2.2
+torch==2.3.0
+scikit-learn==1.5.1
+matplotlib==3.9.2
+seaborn==0.13.2
+pyvista==0.44.1
+vtk==9.3.1
+# provides the `distutils` shim imported by the drivers on Python >= 3.12
+setuptools==72.1.0
