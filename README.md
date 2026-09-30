@@ -14,7 +14,8 @@ This repository contains the code and example datasets for the paper:
 
 Developed at the [Dynamics, Data and Design (D3) Lab](https://d3lab-iisc.github.io/), Department of Mechanical Engineering, Indian Institute of Science (IISc) Bengaluru.
 
-## Workflow
+## Abstract
+We propose a computational framework, Hetero-EUCLID, for segmentation and parameter identification to characterize the full hyperelastic behavior of all constituents of a heterogeneous material. In this work, we leverage the Bayesian-EUCLID (Efficient Unsupervised Constitutive Law Identification and Discovery) framework to efficiently solve the heterogenized formulation through parsimonious model selection using sparsity-promoting priors and Monte Carlo Markov Chain sampling. The framework broadly consists of two steps– residual force-based segmentation and constitutive parameter identification. We validate and demonstrate the ability of the proposed framework to segment the domain and characterize the constituent materials on various types of thin square heterogeneous domains. 
 
 ![Hetero-EUCLID workflow](docs/graphical_abstract.jpg)
 
@@ -156,24 +157,9 @@ If you use this code, please cite:
 }
 ```
 
-and the Bayesian-EUCLID framework it builds on:
-
-```bibtex
-@article{joshi2022bayesian,
-  title   = {Bayesian-EUCLID: Discovering hyperelastic material laws with uncertainties},
-  author  = {Joshi, Akshay and Thakolkaran, Prakash and Zheng, Yiwen and Escande, Maxime and Flaschel, Moritz and De Lorenzis, Laura and Kumar, Siddhant},
-  journal = {Computer Methods in Applied Mechanics and Engineering},
-  volume  = {398},
-  pages   = {115225},
-  year    = {2022},
-  doi     = {10.1016/j.cma.2022.115225}
-}
-```
-
 ## Acknowledgements
 
 - The Bayesian solver in `core/` (hierarchical spike-and-slab prior with Gibbs sampling) and the kinematics utilities are adapted from [Bayesian-EUCLID](https://github.com/EUCLID-code/EUCLID-hyperelasticity-bayesian) (Joshi et al., *CMAME* 2022). Its [documentation](https://euclid-code.github.io/EUCLID-hyperelasticity-bayesian/mkdocs/site/) describes these modules in detail.
-- `core/truncated_multivariate_normal.py` is taken from Paul Brunzema's [truncated-mvn-sampler](https://github.com/brunzema/truncated-mvn-sampler), a Python implementation of the minimax-tilting method of Botev (2016).
 
 ## License
 
