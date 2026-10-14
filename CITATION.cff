@@ -28,6 +28,14 @@ abstract: >-
   (building on Bayesian-EUCLID) then discovers a sparse, interpretable
   constitutive model for each region.
 version: 1.0.0
+doi: "10.5281/zenodo.23359467"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23359467"
+    description: "Zenodo archive of release v1.0.0"
+  - type: doi
+    value: "10.5281/zenodo.23359466"
+    description: "Zenodo concept DOI (all versions, resolves to the latest release)"
 license: GPL-3.0-only
 repository-code: "https://github.com/d3lab-iisc/Hetero-EUCLID"
 keywords:

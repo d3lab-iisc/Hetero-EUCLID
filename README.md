@@ -3,6 +3,7 @@
 **Interpretable model discovery for heterogeneous hyperelastic materials using stress-unsupervised learning**
 
 [![Paper](https://img.shields.io/badge/CMAME-10.1016%2Fj.cma.2026.118729-blue)](https://doi.org/10.1016/j.cma.2026.118729)
+[![DOI](https://zenodo.org/badge/1397781813.svg)](https://doi.org/10.5281/zenodo.23359466)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-green.svg)](LICENSE)
 
 This repository contains the code and example datasets for the paper:
@@ -143,7 +144,7 @@ Here $\tilde I_1 = I_1 J^{-2/3}$ and $\tilde I_2 = I_2 J^{-4/3}$ are the isochor
 
 ## Citation
 
-If you use this code, please cite:
+If you use this code, please cite the paper:
 
 ```bibtex
 @article{chaurasiya2026heteroeuclid,
@@ -156,6 +157,23 @@ If you use this code, please cite:
   doi     = {10.1016/j.cma.2026.118729}
 }
 ```
+
+To cite the software itself, use the archived release on Zenodo ([10.5281/zenodo.23359467](https://doi.org/10.5281/zenodo.23359467)):
+
+```bibtex
+@software{chaurasiya_2026_23359467,
+  author    = {Chaurasiya, Kanhaiya Lal and Dutta, Saurav and Kumar, Siddhant and Joshi, Akshay},
+  title     = {Hetero-EUCLID: Interpretable model discovery for heterogeneous hyperelastic materials using stress-unsupervised learning},
+  month     = oct,
+  year      = 2026,
+  publisher = {Zenodo},
+  version   = {v1.0.0},
+  doi       = {10.5281/zenodo.23359467},
+  url       = {https://doi.org/10.5281/zenodo.23359467}
+}
+```
+
+The DOI [10.5281/zenodo.23359466](https://doi.org/10.5281/zenodo.23359466) in the badge above always resolves to the latest release.
 
 ## Acknowledgements
 
