@@ -1,0 +1,85 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the article below."
+title: "Hetero-EUCLID: Interpretable model discovery for heterogeneous hyperelastic materials using stress-unsupervised learning"
+type: software
+authors:
+  - given-names: Kanhaiya Lal
+    family-names: Chaurasiya
+    orcid: "https://orcid.org/0000-0001-8946-8862"
+    affiliation: "Department of Mechanical Engineering, Indian Institute of Science, Bengaluru, India"
+  - given-names: Saurav
+    family-names: Dutta
+    orcid: "https://orcid.org/0009-0003-7356-4245"
+    affiliation: "Department of Mechanical Engineering, Indian Institute of Science, Bengaluru, India"
+  - given-names: Siddhant
+    family-names: Kumar
+    orcid: "https://orcid.org/0000-0003-1602-8641"
+    affiliation: "Department of Materials Science and Engineering, Delft University of Technology, Delft, The Netherlands"
+  - given-names: Akshay
+    family-names: Joshi
+    orcid: "https://orcid.org/0000-0001-8347-8357"
+    affiliation: "Department of Mechanical Engineering, Indian Institute of Science, Bengaluru, India"
+abstract: >-
+  Hetero-EUCLID is a framework for segmentation and constitutive parameter
+  identification of heterogeneous hyperelastic materials from full-field
+  displacement and boundary-averaged force data, without stress labels.
+  Residual forces of a homogenized model are used to segment the domain into
+  material regions, and a hierarchical Bayesian spike-and-slab model
+  (building on Bayesian-EUCLID) then discovers a sparse, interpretable
+  constitutive model for each region.
+version: 1.0.0
+license: GPL-3.0-only
+repository-code: "https://github.com/d3lab-iisc/Hetero-EUCLID"
+keywords:
+  - hyperelasticity
+  - heterogeneous materials
+  - material model discovery
+  - Bayesian inference
+  - sparse regression
+  - unsupervised learning
+  - EUCLID
+preferred-citation:
+  type: article
+  title: "Hetero-EUCLID: Interpretable model discovery for heterogeneous hyperelastic materials using stress-unsupervised learning"
+  authors:
+    - given-names: Kanhaiya Lal
+      family-names: Chaurasiya
+      orcid: "https://orcid.org/0000-0001-8946-8862"
+    - given-names: Saurav
+      family-names: Dutta
+      orcid: "https://orcid.org/0009-0003-7356-4245"
+    - given-names: Siddhant
+      family-names: Kumar
+      orcid: "https://orcid.org/0000-0003-1602-8641"
+    - given-names: Akshay
+      family-names: Joshi
+      orcid: "https://orcid.org/0000-0001-8347-8357"
+  journal: "Computer Methods in Applied Mechanics and Engineering"
+  volume: 452
+  start: 118729
+  year: 2026
+  month: 4
+  doi: "10.1016/j.cma.2026.118729"
+references:
+  - type: article
+    title: "Bayesian-EUCLID: Discovering hyperelastic material laws with uncertainties"
+    authors:
+      - given-names: Akshay
+        family-names: Joshi
+      - given-names: Prakash
+        family-names: Thakolkaran
+      - given-names: Yiwen
+        family-names: Zheng
+      - given-names: Maxime
+        family-names: Escande
+      - given-names: Moritz
+        family-names: Flaschel
+      - given-names: Laura
+        family-names: De Lorenzis
+      - given-names: Siddhant
+        family-names: Kumar
+    journal: "Computer Methods in Applied Mechanics and Engineering"
+    volume: 398
+    start: 115225
+    year: 2022
+    doi: "10.1016/j.cma.2022.115225"
